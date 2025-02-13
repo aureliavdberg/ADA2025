@@ -9,7 +9,7 @@
 	    "create",
 	    "$_CLUSTER_NAME",
 	    "--project",
-        "$PROJECT_ID",
+        "$mythical-lens-450121-n0",
         "--region",
         "us-central1",
         "--tier",
