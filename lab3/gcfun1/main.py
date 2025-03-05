@@ -18,6 +18,7 @@ def cal_http(request):
     if request_json and 'arg1' in request_json and 'arg2' in request_json:
         arg1 = request_json['arg1']
         arg2 = request_json['arg2']
+        arg2 = request_json['arg2']
     elif request_args and 'arg1' in request_args and 'arg2' in request_args:
         arg1 = request_args['arg1']
         arg2 = request_args['arg2']

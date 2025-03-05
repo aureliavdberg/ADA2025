@@ -11,18 +11,18 @@ import functions_framework
 
 # Triggered by a change in a storage bucket
 @functions_framework.cloud_event
-def build_diabetes_predictor(cloud_event):
+def build_diabetes_predictor(cloud_event):  # function name needs to be inserted when deploying
     """Background Cloud Function to be triggered by Cloud Storage.
        This generic function logs relevant data when a file is changed.
       See https://cloud.google.com/functions/docs/tutorials/storage
     """
 
-    data = cloud_event.data
+    data = cloud_event.data  #.data to access the data
 
     event_id = cloud_event["id"]
     event_type = cloud_event["type"]
 
-    bucket_name = data["bucket"]
+    bucket_name = data["bucket"]  # for pubsub cannot use bucket, we will do later
     file_name = data["name"]
     metageneration = data["metageneration"]
     timeCreated = data["timeCreated"]
@@ -73,7 +73,7 @@ def build_diabetes_predictor(cloud_event):
     # Save to GCS
     client = storage.Client(project=project_id)
     bucket = client.get_bucket(model_bucket_name)
-    blob = bucket.blob('model.h5')
+    blob = bucket.blob('model.h5')  # store in our bucket as model.h5
     blob.upload_from_filename(model_path)
     # Do clean up
     os.remove(temp_filename)
