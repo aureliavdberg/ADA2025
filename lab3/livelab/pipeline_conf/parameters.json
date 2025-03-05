@@ -1,6 +1,6 @@
 {
-  "project_id": "your project id",
-  "data_bucket": "your data bucket",
+  "project_id": "mythical-lens-450121-n0",
+  "data_bucket": "ada2025_data_1575686",
   "trainset_filename": "training_set.csv",
-  "model_repo": "your project model repo"
+  "model_repo": "ada2025_models_1575686"
 }

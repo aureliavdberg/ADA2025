@@ -43,5 +43,5 @@ if __name__ == '__main__':
             "age": 47
         }
     ]
-    data = json.dumps(data).encode("utf-8")
-    publish_message("your project id", "diabetes_req", data)  # replace your project id
+    data = json.dumps(data).encode("utf-8")  # messages in pubsub always need to be encoded
+    publish_message("mythical-lens-450121-n0", "diabetes_req", data)  # replace your project id
