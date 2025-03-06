@@ -18,7 +18,7 @@ class Delivery:
             session.close()
             return jsonify({'message': f'There is already delivery with id {d_id}'}), 403
         else:
-             delivery = DeliveryDAO(body['id'], body['customer_id'], body['provider_id'], body['package_id'],
+             delivery = DeliveryDAO(body['id'], body['customer_id'], body['provider_id'], body['package_id'],  # this changed in comparison to previous one
                                     datetime.now(),
                                     datetime.strptime(body['delivery_time'], '%Y-%m-%d %H:%M:%S.%f'),
                                     StatusDAO(body['id'], STATUS_CREATED, datetime.now()))

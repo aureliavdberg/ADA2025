@@ -8,7 +8,7 @@
         "cd ./lab4/deliveryservice-bq && python -m venv .myenv && . .myenv/bin/activate && pip install -r requirements_dev.txt && python -m pytest --junitxml=${SHORT_SHA}_test_log.xml",
         "--user"
       ]
-    },
+    }, 
     {
       "name": "gcr.io/cloud-builders/docker",
       "args": [

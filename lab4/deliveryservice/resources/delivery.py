@@ -19,7 +19,7 @@ class Delivery:
         session.commit()
         session.refresh(delivery)
         session.close()
-        return jsonify({'delivery_id': delivery.id}), 200
+        return jsonify({'delivery_id': delivery.id}), 200  # 200 is the success code 
 
     @staticmethod
     def get(d_id):
