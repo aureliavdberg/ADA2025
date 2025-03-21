@@ -13,10 +13,11 @@ def pull_message(project, subscription, orders):
     subscriber = pubsub_v1.SubscriberClient()
     subscription_path = subscriber.subscription_path(project, subscription)
 
+    # only difference between message_puller and pub_sub
     def callback(message):
         logging.info(f"Received {message.data}.")
         event_type = message.attributes.get("event_type")  # event type as a message attribute
-        data = json.loads(message.data.decode("utf-8"))
+        data = json.loads(message.data.decode("utf-8"))  # Data needs to be encoded
         if event_type == "StockAvailable":
             logging.info("The event StockAvailable received")
             results = orders.create_order(data)

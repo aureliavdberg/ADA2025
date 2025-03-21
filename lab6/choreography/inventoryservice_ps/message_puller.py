@@ -13,7 +13,7 @@ class Callable:
     def __init__(self, project, product):
         self.project = project
         self.product = product
-
+    
     def callback(self, message):
         logging.info(f"Received {message.data}.")
         event_type = message.attributes.get("event_type")  # event type as a message attribute
@@ -71,6 +71,7 @@ class MessagePuller:
         self.product = product
 
     def run(self):
+        # At the start of every minute check the messages and publish again
         schedule.every().minute.at(':00').do(pull_message, self.project_id, self.subscription_order_req, self.product)
         schedule.every().minute.at(':00').do(pull_message, self.project_id, self.subscription_order_status,
                                              self.product)
