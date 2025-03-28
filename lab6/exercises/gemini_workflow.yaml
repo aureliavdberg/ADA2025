@@ -28,8 +28,8 @@ main:
                 value: country
                 in: ${args.countries}
                 steps:
-                    - ask_llm:
-                        call: googleapis.aiplatform.v1.projects.locations.endpoints.generateContent
+                    - ask_llm:  
+                        call: googleapis.aiplatform.v1.projects.locations.endpoints.generateContent # Can call url here
                         args:
                             model: ${"projects/" + project + "/locations/" + location + "/publishers/google/models/" + model}
                             region: ${location}
